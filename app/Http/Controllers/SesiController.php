@@ -11,6 +11,7 @@ class SesiController extends Controller
     {
         return view('login');
     }
+
     function login(Request $request)
     {
         $request->validate([
@@ -28,9 +29,9 @@ class SesiController extends Controller
 
         if(Auth::attempt($infologin)){
             if(Auth::user()->role == 'admin'){
-                return redirect('admin');
+                return redirect()->route('admin.dashboard');
             }elseif(Auth::user()->role == 'manager'){
-                return redirect('admin');
+                return redirect('admin.dashboard');
             }
         }else{
             return redirect('')->withErrors('Username dan Password yang dimasukkan tidak sesuai')->withInput();

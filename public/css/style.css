@@ -1,0 +1,68 @@
+/* component table */
+.container-table {
+    width: 100%;
+    overflow-x: auto;
+}
+.container-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.container-table th, td {
+    padding: 6px 15px;
+    border: 1px solid #f5f5f5;
+    text-align: left;
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+/* component table */
+
+
+.container-navlink a {
+    width: 20%;
+    background-color: #fafafa;
+    outline: 2px solid #dbdbdb;
+}
+.container-navlink .wrapper-1:hover {
+    background-color: #F4F2FE;
+    outline: 2px solid #4026AB;
+}
+.container-navlink .wrapper-2:hover {
+    background-color: #F0FAEB;
+    outline: 2px solid #44A016;
+}
+.container-navlink .wrapper-3:hover {
+    background-color: #fef9ed;
+    outline: 2px solid #DDBC21;
+}
+.container-navlink .wrapper-4:hover {
+    background-color: #F9EBDE;
+    outline: 2px solid #D7791B;
+}
+
+
+/* components style */
+.navlink-active-1 {
+    border: 2px solid #2f15b3;
+    outline: none;
+}
+.navlink-active-2 {
+    border: 2px solid #17b61f;
+    outline: none;
+}
+.navlink-active-3 {
+    border: 2px solid #dba021;
+    outline: none;
+}
+.navlink-active-4 {
+    border: 2px solid #d38022;
+    outline: none;
+}
+/* components style */
+
+/* hover link import */
+.hover-import {
+    background-color: #E9E9E9;
+}
+.hover-import:hover {
+    background-color: rgb(223, 223, 223);
+}
+/* hover link import */
