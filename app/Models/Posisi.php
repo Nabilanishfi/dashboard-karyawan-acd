@@ -2,20 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\KaryawanOrganik;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Posisi extends Model
 {
     use HasFactory;
 
     protected $table = 'posisis';
+    protected $primaryKey = 'id';
+
     protected $guarded = ['id'];
 
-    public function karyawans(): HasMany
+    public function karyawan_organiks(): HasMany
     {
-        return $this->hasMany(karyawan::class, 'posisi_id', 'id');
+        return $this->hasMany(KaryawanOrganik::class, 'position', 'id');
     }
 }

@@ -68,10 +68,10 @@
                             <th scope="row" class="d-flex justify-content-center">{{ $i++ }}</th>
                             <td>{{ $karyawan->pers_no }}</td>
                             <td>{{ $karyawan->name }}</td>
-                            <td>{{ $karyawan->emp_group }}</td>
-                            <td>{{ $karyawan->emp_subgroup }}</td>
-                            <td>{{ $karyawan->org_unit }}</td>
-                            <td>{{ $karyawan->position }}</td>
+                            <td>{{ $karyawan->namagroup }}</td>
+                            <td>{{ $karyawan->namasubgroup }}</td>
+                            <td>{{ $karyawan->namaunit }}</td>
+                            <td>{{ $karyawan->namaposisi }}</td>
                             <td>{{ $karyawan->ps_group }}</td>
                             <td>{{ $karyawan->birth_place }}</td>
                             <td>{{ $karyawan->birth_date }}</td>
