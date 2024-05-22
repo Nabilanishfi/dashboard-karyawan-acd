@@ -6,10 +6,10 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class TurnOverTPP extends Controller
+class TurnOverOrganikController extends Controller
 {
     public function index(): View
     {
-        return view("organik.turnover-tpp.index");
+        return view("organik.turnover-organik.index");
     }
 }

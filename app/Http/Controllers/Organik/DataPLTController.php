@@ -6,7 +6,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class DataPLT extends Controller
+class DataPLTController extends Controller
 {
     public function index(): View
     {

@@ -33,6 +33,16 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
             'remember_token' => Str::random(10),
         ]);
+
+        User::create([
+            'name' => 'Umar Hadi',
+            'email' => 'umar@acd.test',
+            'password' => Hash::make('12344321'),
+            'role' => 'manager',
+            'remember_token' => Str::random(10),
+        ]);
+
+        $this->call(KaryawanOrganikSeeder::class);
         
     }
 }

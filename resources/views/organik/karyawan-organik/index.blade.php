@@ -6,7 +6,7 @@
     <div class="container-index-karyawanorganik py-3 px-2" style="background-color: #fafafa; box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);">
         <div class="wrapper-link d-flex py-2 justify-content-between align-items-center">
             <div class="link d-flex gap-2">
-                <a href="#" class="hover-import py-2 px-2 d-flex gap-1 justify-content-center align-items-center text-decoration-none text-black">
+                <a href="{{ route('data.karyawanorganik.create') }}" class="hover-import py-2 px-2 d-flex gap-1 justify-content-center align-items-center text-decoration-none text-black">
                     <svg width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-11.25a.75.75 0 0 0-1.5 0v2.5h-2.5a.75.75 0 0 0 0 1.5h2.5v2.5a.75.75 0 0 0 1.5 0v-2.5h2.5a.75.75 0 0 0 0-1.5h-2.5v-2.5Z" clip-rule="evenodd" />
                     </svg>
@@ -16,7 +16,7 @@
                     <img src="{{ asset('./img/excel.svg') }}" width="20" alt="">
                     <span style="font-size: 13px;">Import Excel</span>  
                 </a>
-                <a href="#" class="hover-import py-2 px-2 d-flex gap-1 justify-content-center align-items-center text-decoration-none text-black">
+                <a href="{{ route('admin.dashboard') }}" class="hover-import py-2 px-2 d-flex gap-1 justify-content-center align-items-center text-decoration-none text-black">
                     <img src="{{ asset('./img/grafik.svg') }}" width="20" alt="">
                     <span style="font-size: 13px;">Dashboard Grafik</span>  
                 </a>
@@ -41,7 +41,7 @@
 
         <main class="wrapper-table mt-2">
             <div class="container-table table-responsive" style="overflow-x: auto; width: 100%">
-                <table class="table">
+                <table class="table table-hover">
                     <thead>
                       <tr>
                         <th scope="col">No</th>
@@ -55,29 +55,31 @@
                         <th scope="col">Tempat Lahir</th>
                         <th scope="col">Tanggal Lahir</th>
                         <th scope="col">Usia</th>
-                        <th scope="col">Grup Karyawan</th>
                         <th scope="col">Jenis Kelamin</th>
                         <th scope="col">Pendidikan</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row" class="d-flex justify-content-center">1</th>
-                        <td>Markasfddsaf</td>
-                        <td>Ottasfsafdo</td>
-                        <td>test</td>
-                        <td>tesadfsadst</td>
-                        <td>tesasfsadft</td>
-                        <td>testasdfasfd</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>tesasdt</td>
-                        <td>test</td>
-                        <td>tesasfdsat</td>
-                        <td>test</td>
-                        <td>teasfdsafsafst</td>
-
-                      </tr>
+                        @php
+                            $i = 1;
+                        @endphp
+                        @foreach ($karyawans as $karyawan)
+                        <tr>
+                            <th scope="row" class="d-flex justify-content-center">{{ $i++ }}</th>
+                            <td>{{ $karyawan->pers_no }}</td>
+                            <td>{{ $karyawan->name }}</td>
+                            <td>{{ $karyawan->emp_group }}</td>
+                            <td>{{ $karyawan->emp_subgroup }}</td>
+                            <td>{{ $karyawan->org_unit }}</td>
+                            <td>{{ $karyawan->position }}</td>
+                            <td>{{ $karyawan->ps_group }}</td>
+                            <td>{{ $karyawan->birth_place }}</td>
+                            <td>{{ $karyawan->birth_date }}</td>
+                            <td>{{ $karyawan->age }}</td>
+                            <td>{{ $karyawan->gender }}</td>
+                            <td>{{ $karyawan->tingkat_pendidikan }}</td>
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
