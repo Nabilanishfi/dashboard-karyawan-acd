@@ -49,5 +49,5 @@ Route::prefix('data')->name('data.')->middleware('auth')->group(function() {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/logout',[SesiController::class,'logout']);
+    Route::get('/logout',[SesiController::class,'logout'])->name('logout');
 });

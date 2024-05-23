@@ -40,6 +40,10 @@ class SesiController extends Controller
 
     function logout(){
         Auth::logout();
-        return redirect('');
+        
+        session()->invalidate();
+        session()->regenerateToken();
+
+        return redirect()->route('login')->with('success', 'Kamu berhasil logout');
     }
 }
