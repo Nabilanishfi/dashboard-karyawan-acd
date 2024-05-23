@@ -103,3 +103,66 @@
     border: 2px solid rgb(161, 161, 161);
 }
 /* btn back */
+
+
+/* dashboard */
+.container-dashboard .hero-container {
+    width: 80%;
+    margin: 0px auto;
+}
+.container-dashboard .hero-container img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.container-dashboard .karyawan-organik {
+    background-color: rgb(247, 247, 247);
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+.container-dashboard .karyawan-organik:hover {
+    transform: scale(1.1);
+}
+
+.container-dashboard .turnover-organik {
+    background-color: rgb(247, 247, 247);
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+.container-dashboard .turnover-organik:hover {
+    transform: scale(1.1);
+}
+
+.container-dashboard .turnover-tpp {
+    background-color: rgb(247, 247, 247);
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+.container-dashboard .turnover-tpp:hover {
+    transform: scale(1.1);
+}
+
+.container-dashboard .data-plt {
+    background-color: rgb(247, 247, 247)    ;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+.container-dashboard .data-plt:hover {
+    transform: scale(1.1);
+}
+/* dashboard */
+
+/* navbar dashboard */
+.navbar-dashboard .links a {
+    border-radius: 20px;
+    text-decoration: none;
+    padding: 10px 35px;
+    color: rgb(54, 54, 54);
+    font-size: 14px;
+    font-weight: bold;
+}
+.navbar-dashboard .links a:hover {
+    /* border: 2px solid rgb(223, 223, 223); */
+    background-color: rgb(241, 241, 241);
+}
+/* navbar dashboard */
