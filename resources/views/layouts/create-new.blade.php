@@ -17,7 +17,7 @@
         @yield('container')
     </div>
 
-    <footer class="mt-2" style="background-color: white;">
+    <footer class="mt-5" style="background-color: white;">
         @include('partials.footer')
     </footer>
 

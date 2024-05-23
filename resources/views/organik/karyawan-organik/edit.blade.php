@@ -1,6 +1,6 @@
 @extends('layouts.create-new')
 
-@section('title', 'Create | Karyawan Organik')
+@section('title', 'Edit | Karyawan Organik')
 
 @section('container')
     <div class="container-create-karyawanorganik">
@@ -13,17 +13,18 @@
             </a>
         </div>
         <div class="mt-4" style="border-bottom: 2px solid rgb(214, 212, 212);">
-            <h5 style="font-size: 14px;">Tambah Karyawan Organik</h5>
+            <h5 style="font-size: 14px;">Ubah Karyawan Organik</h5>
         </div>
         <div class="mt-3 py-4 px-4 rounded" style="background-color: rgb(255, 255, 255);">
             <h4 class="mb-2">Karyawan Organik</h4>
-            <form action="{{ route('data.karyawanorganik.karyawan.store') }}" method="post">
+            <form action="{{ route('data.karyawanorganik.karyawan.update', $karyawan) }}" method="post">
                 @csrf
+                @method('put')
                 <div class="d-flex justify-content-between gap-2">
                     <div class="d-flex flex-column gap-1" style="width: 45%">
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="pers_no" style="font-size: 13px;">Personal Number</label>
-                            <input type="text" name="pers_no" id="pers_no" class="px-3 py-2 @error('pers_no') is-invalid @enderror" placeholder="masukkan personal number.." value="{{ old('pers_no') }}">
+                            <input disabled type="text" name="pers_no" id="pers_no" class="px-3 py-2 @error('pers_no') is-invalid @enderror" placeholder="masukkan personal number.." value="{{ $karyawan->pers_no }}">
                             @error('pers_no')
                                 <div class="" style="font-size: 13px; color: red;">
                                     *{{ $message }}
@@ -32,7 +33,7 @@
                         </div>
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="name" style="font-size: 13px;">Nama Karyawan</label>
-                            <input type="text" name="name" id="name" class="px-3 py-2 @error('name') is-invalid @enderror" placeholder="masukkan nama karyawan.." value="{{ old('name') }}">
+                            <input type="text" name="name" id="name" class="px-3 py-2 @error('name') is-invalid @enderror" placeholder="masukkan nama karyawan.." value="{{ $karyawan->name }}">
                             @error('name')
                                 <div class="" style="font-size: 13px; color: red;">
                                     *{{ $message }}
@@ -43,6 +44,9 @@
                             <label for="emp_group" style="font-size: 13px;">Grup Karyawan</label>
                             <select class="form-select form-select-md @error('emp_group') is-invalid @enderror" style="color: rgb(131, 131, 131);" name="emp_group" id="emp_group">
                                 <option hidden>-- pilih grup --</option>
+                                @if($karyawan->emp_group)
+                                    <option selected hidden value="{{ $karyawan->emp_group }}">{{ $karyawan->namagroup }}</option>
+                                @endif
                                 @foreach ($groups as $group)
                                 <option value="{{ $group->id }}">{{ $group->name }}</option>
                                 @endforeach
@@ -57,6 +61,9 @@
                             <label for="emp_subgroup" style="font-size: 13px;">Subgroup Karyawan</label>
                             <select class="form-select form-select-md @error('emp_subgroup') is-invalid @enderror" style="color: rgb(131, 131, 131);" name="emp_subgroup" id="emp_subgroup">
                                 <option hidden>-- pilih subgrup --</option>
+                                @if($karyawan->emp_subgroup)
+                                    <option selected hidden value="{{ $karyawan->emp_subgroup }}">{{ $karyawan->namasubgroup }}</option>
+                                @endif
                                 @foreach ($subgroups as $subgroup)
                                 <option value="{{ $subgroup->id }}">{{ $subgroup->name }}</option>
                                 @endforeach
@@ -71,6 +78,9 @@
                             <label for="org_unit" style="font-size: 13px;">Unit Organisasional</label>
                             <select class="form-select form-select-md @error('org_unit') is-invalid @enderror" style="color: rgb(131, 131, 131);" name="org_unit" id="org_unit">
                                 <option hidden>-- pilih unit organisasional --</option>
+                                @if($karyawan->org_unit)
+                                    <option selected hidden value="{{ $karyawan->org_unit }}">{{ $karyawan->namaunit }}</option>
+                                @endif
                                 @foreach ($units as $unit)
                                 <option value="{{ $unit->id }}">{{ $unit->name }}</option>
                                 @endforeach
@@ -85,6 +95,9 @@
                             <label for="position" style="font-size: 13px;">Posisi</label>
                             <select class="form-select form-select-md @error('position') is-invalid @enderror" style="color: rgb(131, 131, 131);" name="position" id="position">
                                 <option hidden>-- pilih posisi --</option>
+                                @if($karyawan->position)
+                                    <option selected hidden value="{{ $karyawan->position }}">{{ $karyawan->namaposisi }}</option>
+                                @endif
                                 @foreach ($posisis as $posisi)
                                 <option value="{{ $posisi->id }}">{{ $posisi->name }}</option>
                                 @endforeach
@@ -99,7 +112,7 @@
                     <div class="d-flex flex-column gap-1" style="width: 48%">
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="ps_group" style="font-size: 13px;">Grup PS</label>
-                            <input type="text" name="ps_group" id="ps_group" class="px-3 py-2 @error('ps_group') is-invalid @enderror" placeholder="masukkan Grup PS.." value="{{ old('ps_group') }}">
+                            <input type="text" name="ps_group" id="ps_group" class="px-3 py-2 @error('ps_group') is-invalid @enderror" placeholder="masukkan Grup PS.." value="{{ $karyawan->ps_group}}">
                             @error('ps_group')
                                 <div class="" style="font-size: 13px; color: red;">
                                     *{{ $message }}
@@ -108,7 +121,7 @@
                         </div>
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="birth_place" style="font-size: 13px;">Tempat Lahir</label>
-                            <input type="text" name="birth_place" id="birth_place" class="px-3 py-2 @error('birth_place') is-invalid @enderror" placeholder="masukkan tempat lahir.." value="{{ old('birth_place') }}">
+                            <input type="text" name="birth_place" id="birth_place" class="px-3 py-2 @error('birth_place') is-invalid @enderror" placeholder="masukkan tempat lahir.." value="{{ $karyawan->birth_place }}">
                             @error('birth_place')
                                 <div class="" style="font-size: 13px; color: red;">
                                     *{{ $message }}
@@ -117,7 +130,7 @@
                         </div>
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="birth_date" style="font-size: 13px;">Tanggal Lahir</label>
-                            <input type="date" name="birth_date" id="birth_date" class="px-3 py-2 @error('birth_date') is-invalid @enderror" style="color:rgb(138, 138, 138)">
+                            <input type="date" name="birth_date" id="birth_date" class="px-3 py-2 @error('birth_date') is-invalid @enderror" style="color:rgb(138, 138, 138)" value="{{ $karyawan->birth_date }}">
                             @error('birth_date')
                                 <div class="" style="font-size: 13px; color: red;">
                                     *{{ $message }}
@@ -128,6 +141,9 @@
                             <label for="gender" style="font-size: 13px;">Jenis Kelamin</label>
                             <select class="form-select form-select-md @error('gender') is-invalid @enderror" style="color: rgb(131, 131, 131);" name="gender" id="gender">
                                 <option hidden>-- pilih jenis kelamin --</option>
+                                @if ($karyawan->gender)
+                                    <option selected hidden value="{{ $karyawan->gender }}">{{ $karyawan->gender }}</option>
+                                @endif
                                 <option value="MALE">MALE</option>
                                 <option value="FEMALE">FEMALE</option>
                             </select>
@@ -142,6 +158,9 @@
                             <label for="tingkat_pendidikan" style="font-size: 13px;">Tingkat Pendidikan</label>
                             <select class="form-select form-select-md @error('tingkat_pendidikan') is-invalid @enderror" style="color: rgb(131, 131, 131);" name="tingkat_pendidikan" id="tingkat_pendidikan">
                                 <option hidden>-- pilih tingkat pendidikan --</option>
+                                @if ($karyawan->tingkat_pendidikan)
+                                    <option selected hidden value="{{ $karyawan->tingkat_pendidikan }}">{{ $karyawan->tingkat_pendidikan }}</option>
+                                @endif
                                 <option value="S1 - Strata 1">S1 - Strata 1</option>
                                 <option value="DIII - Diploma III">DIII - Diploma III</option>
                                 <option value="SLTA">SLTA</option>
@@ -152,7 +171,7 @@
                                 </div>
                             @enderror
                         </div>
-                        <button type="submit" class="mt-3 py-2 btn-tambah">Tambah Karyawan</button>
+                        <button type="submit" class="mt-3 py-2 btn-tambah">Ubah Karyawan</button>
                     </div>
                 </div>
             </form>

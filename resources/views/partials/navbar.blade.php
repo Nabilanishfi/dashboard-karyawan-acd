@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary py-3" style="backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); background-color: rgba(255, 255, 255, 0.7);">
     <div class="container d-flex justify-content-between" style="width: 90%; margin: 0px auto">
-      <a class="navbar-brand d-flex gap-2" style="width: 80%" href="{{ route('admin.dashboard') }}">
+      <a class="navbar-brand d-flex gap-2" style="width: 25%" href="{{ route('admin.dashboard') }}">
         <img src="{{ asset('./img/angkasapura.svg') }}" alt="angkasapura">
         <img src="{{ asset('./img/acd.svg') }}" alt="acd">
       </a>

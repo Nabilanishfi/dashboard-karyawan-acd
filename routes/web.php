@@ -35,16 +35,16 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'userAccess:admin'])
 
 Route::prefix('data')->name('data.')->middleware('auth')->group(function() {
     Route::prefix('karyawan-organik')->name('karyawanorganik.')->group(function() {
-        Route::resource('/', KaryawanOrganikController::class);
+        Route::resource('/karyawan', KaryawanOrganikController::class);
     });
     Route::prefix('turnover-organik')->name('turnoverorganik.')->group(function() {
-        Route::resource('/', TurnOverOrganikController::class);
+        Route::resource('/karyawan', TurnOverOrganikController::class);
     });
     Route::prefix('turnover-tpp')->name('turnovertpp.')->group(function() {
-        Route::resource('/', TurnOverTPPController::class);
+        Route::resource('/karyawan', TurnOverTPPController::class);
     });
     Route::prefix('data-plt')->name('dataplt.')->group(function() {
-        Route::resource('/', DataPLTController::class);
+        Route::resource('/karyawan', DataPLTController::class);
     });
 });
 
