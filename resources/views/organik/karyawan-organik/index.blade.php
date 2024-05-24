@@ -7,7 +7,7 @@
         <div class="wrapper-link d-flex py-2 justify-content-between align-items-center">
             <div class="link d-flex gap-2">
                 <a href="{{ route('data.karyawanorganik.karyawan.create') }}" class="hover-import py-2 px-2 d-flex gap-1 justify-content-center align-items-center text-decoration-none text-black">
-                    <svg width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                    <svg width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">name
                         <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-11.25a.75.75 0 0 0-1.5 0v2.5h-2.5a.75.75 0 0 0 0 1.5h2.5v2.5a.75.75 0 0 0 1.5 0v-2.5h2.5a.75.75 0 0 0 0-1.5h-2.5v-2.5Z" clip-rule="evenodd" />
                     </svg>
                     <span style="font-size: 13px;">Tambah Data Baru</span>  
@@ -16,7 +16,7 @@
                     <img src="{{ asset('./img/excel.svg') }}" width="20" alt="">
                     <span style="font-size: 13px;">Import Excel</span>  
                 </a>
-                <a href="{{ route('admin.dashboard') }}" class="hover-import py-2 px-2 d-flex gap-1 justify-content-center align-items-center text-decoration-none text-black">
+                <a href="{{ route('grafik.karyawanorganik') }}" class="hover-import py-2 px-2 d-flex gap-1 justify-content-center align-items-center text-decoration-none text-black">
                     <img src="{{ asset('./img/grafik.svg') }}" width="20" alt="">
                     <span style="font-size: 13px;">Dashboard Grafik</span>  
                 </a>

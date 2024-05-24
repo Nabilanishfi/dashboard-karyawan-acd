@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Grafik\GrafikController;
 use App\Http\Controllers\Organik\DataPLTController;
 use App\Http\Controllers\Organik\TurnOverTPPController;
 use App\Http\Controllers\Organik\KaryawanOrganikController;
@@ -46,6 +47,13 @@ Route::prefix('data')->name('data.')->middleware('auth')->group(function() {
     Route::prefix('data-plt')->name('dataplt.')->group(function() {
         Route::resource('/karyawan', DataPLTController::class);
     });
+});
+
+Route::prefix('grafik')->name('grafik.')->middleware('auth')->group(function () {
+    Route::get('/karyawan-organik', [GrafikController::class, 'karyawanOrganik'])->name('karyawanorganik');
+    Route::get('/turnover-organik', [GrafikController::class, 'turnOverOrganik'])->name('turnoverorganik');
+    Route::get('/turnover-tpp', [GrafikController::class, 'turnOverTPP'])->name('turnovertpp');
+    Route::get('/data-plt', [GrafikController::class, 'dataplt'])->name('dataplt');
 });
 
 Route::middleware(['auth'])->group(function () {

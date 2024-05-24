@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Grafik\GrafikController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('grafik')->name('grafik.')->group(function() {
+    Route::get('/karyawan-organik', [GrafikController::class, 'getCountKaryawanOrganik'])->name('karyawanorganik');
 });
