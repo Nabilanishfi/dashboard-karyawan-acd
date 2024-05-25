@@ -42,7 +42,7 @@
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="emp_group" style="font-size: 13px;">Grup Karyawan</label>
                             <select class="form-select form-select-md @error('emp_group') is-invalid @enderror" style="color: rgb(131, 131, 131);" name="emp_group" id="emp_group">
-                                <option hidden>-- pilih grup --</option>
+                                <option value="" hidden>-- pilih grup --</option>
                                 @foreach ($groups as $group)
                                 <option value="{{ $group->id }}">{{ $group->name }}</option>
                                 @endforeach
@@ -56,7 +56,7 @@
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="emp_subgroup" style="font-size: 13px;">Subgroup Karyawan</label>
                             <select class="form-select form-select-md @error('emp_subgroup') is-invalid @enderror" style="color: rgb(131, 131, 131);" name="emp_subgroup" id="emp_subgroup">
-                                <option hidden>-- pilih subgrup --</option>
+                                <option value="" hidden>-- pilih subgrup --</option>
                                 @foreach ($subgroups as $subgroup)
                                 <option value="{{ $subgroup->id }}">{{ $subgroup->name }}</option>
                                 @endforeach
@@ -70,7 +70,7 @@
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="org_unit" style="font-size: 13px;">Unit Organisasional</label>
                             <select class="form-select form-select-md @error('org_unit') is-invalid @enderror" style="color: rgb(131, 131, 131);" name="org_unit" id="org_unit">
-                                <option hidden>-- pilih unit organisasional --</option>
+                                <option value="" hidden>-- pilih unit organisasional --</option>
                                 @foreach ($units as $unit)
                                 <option value="{{ $unit->id }}">{{ $unit->name }}</option>
                                 @endforeach
@@ -84,7 +84,7 @@
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="position" style="font-size: 13px;">Posisi</label>
                             <select class="form-select form-select-md @error('position') is-invalid @enderror" style="color: rgb(131, 131, 131);" name="position" id="position">
-                                <option hidden>-- pilih posisi --</option>
+                                <option value="" hidden>-- pilih posisi --</option>
                                 @foreach ($posisis as $posisi)
                                 <option value="{{ $posisi->id }}">{{ $posisi->name }}</option>
                                 @endforeach
@@ -127,7 +127,7 @@
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="gender" style="font-size: 13px;">Jenis Kelamin</label>
                             <select class="form-select form-select-md @error('gender') is-invalid @enderror" style="color: rgb(131, 131, 131);" name="gender" id="gender">
-                                <option hidden>-- pilih jenis kelamin --</option>
+                                <option value="" hidden>-- pilih jenis kelamin --</option>
                                 <option value="MALE">MALE</option>
                                 <option value="FEMALE">FEMALE</option>
                             </select>
@@ -141,7 +141,7 @@
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="tingkat_pendidikan" style="font-size: 13px;">Tingkat Pendidikan</label>
                             <select class="form-select form-select-md @error('tingkat_pendidikan') is-invalid @enderror" style="color: rgb(131, 131, 131);" name="tingkat_pendidikan" id="tingkat_pendidikan">
-                                <option hidden>-- pilih tingkat pendidikan --</option>
+                                <option value="" hidden>-- pilih tingkat pendidikan --</option>
                                 <option value="S1 - Strata 1">S1 - Strata 1</option>
                                 <option value="DIII - Diploma III">DIII - Diploma III</option>
                                 <option value="SLTA">SLTA</option>

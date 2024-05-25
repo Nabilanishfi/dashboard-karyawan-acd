@@ -37,4 +37,22 @@ class KaryawanOrganikRequest extends FormRequest
             'birth_place' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'pers_no.required' => 'Personal Number harus diisi.',
+            'pers_no.unique' => 'Personal Number sudah tersedia, silahkan gunakan yang lain.',
+            'name.required' => 'Nama harus diisi.',
+            'emp_group.required' => 'Grup Karyawan harus diisi.',
+            'emp_subgroup.required' => 'Subgrup Karyawan harus diisi.',
+            'org_unit.required' => 'Unit Organisasional harus diisi.',
+            'position.required' => 'Posisi harus diisi.',
+            'ps_group.required' => 'Grup PS harus diisi.',
+            'birth_date.required' => 'Tanggal Lahir harus diisi.',
+            'gender.required' => 'Jenis Kelamin harus diisi.',
+            'tingkat_pendidikan.required' => 'Tingkat Pendidikan harus diisi.',
+            'birth_place.required' => 'Tempat Lahir harus diisi.',
+        ];
+    }
 }
