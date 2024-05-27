@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('area');
             $table->string('fungsi');
             $table->string('unit_kerja');
-            $table->date('rotasi_antar_unit');
-            $table->date('masuk');
-            $table->date('keluar');
+            $table->date('rotasi_antar_unit')->nullable();
+            $table->date('masuk')->nullable();
+            $table->date('keluar')->nullable();
             $table->string('keterangan');
             $table->timestamps();
         });

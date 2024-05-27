@@ -48,7 +48,7 @@
                                     totalAge['40+'],
                                     totalAge['50+']
                                 ],
-                                backgroundColor: ['#FFF746', '#C1FF46', '#46FF78', '#46FFEE', '#468FFF'],
+                                backgroundColor: ['#F27BBD', '#E1AFD1', '#874CCC', '#7469B6', '#5755FE'],
                                 borderWidth: 1,
                             }]
                         },

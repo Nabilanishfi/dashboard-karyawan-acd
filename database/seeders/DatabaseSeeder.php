@@ -12,6 +12,7 @@ use Database\Seeders\GroupSeeder;
 use Database\Seeders\PosisiSeeder;
 use Database\Seeders\SubgroupSeeder;
 use Illuminate\Support\Facades\Hash;
+use Database\Seeders\TurnOverOrganikSeeder;
 
 
 class DatabaseSeeder extends Seeder
@@ -47,6 +48,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call(KaryawanOrganikSeeder::class);
+        $this->call(TurnOverOrganikSeeder::class);
         
     }
 }
