@@ -131,5 +131,27 @@ class FungsiSeeder extends Seeder
         Fungsi::create([
             'name' => 'STAFF OF MANAGER OF PIU - DJB',
         ]);
+        
+        Fungsi::create([
+            'name'=> 'TEKNIK SIPIL',
+        ]);
+        Fungsi::create([
+            'name'=> 'KEUANGAN',
+        ]);
+        Fungsi::create([
+            'name'=> 'TEKNIK',
+        ]);
+        Fungsi::create([
+            'name'=> 'TEKNIK & KEUANGAN',
+        ]);
+        Fungsi::create([
+            'name'=> 'ADM & KEUANGAN',
+        ]);
+        Fungsi::create([
+            'name'=> 'ADM',
+        ]);
+        Fungsi::create([
+            'name'=> 'GA & ADM',
+        ]);
     }
 }

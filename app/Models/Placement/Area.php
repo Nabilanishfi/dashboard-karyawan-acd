@@ -2,6 +2,7 @@
 
 namespace App\Models\Placement;
 
+use App\Models\TurnOverTPP;
 use App\Models\TurnOverOrganik;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -16,5 +17,10 @@ class Area extends Model
 
     public function turn_over_organiks(): HasMany {
         return $this->hasMany(TurnOverOrganik::class, 'area_id', 'id');
+    }
+
+    public function turn_over_tpps(): HasMany
+    {
+        return $this->hasMany(TurnOverTPP::class, 'area_id', 'id');
     }
 }

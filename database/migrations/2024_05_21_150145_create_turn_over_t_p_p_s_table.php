@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('turn_over_t_p_p_s', function (Blueprint $table) {
             $table->string('nip')->unique();
             $table->string('name');
-            $table->string('area');
-            $table->string('fungsi');
-            $table->string('unit_kerja');
+            $table->foreignId('area_id');
+            $table->foreignId('fungsi_id');
+            $table->foreignId('unit_kerja_id');
             $table->string('pendidikan');
-            $table->date('masuk');
-            $table->date('keluar');
-            $table->string('keterangan');
+            $table->date('masuk')->nullable();
+            $table->date('keluar')->nullable();
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }
