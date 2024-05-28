@@ -7,8 +7,10 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Database\Seeders\AreaSeeder;
 use Database\Seeders\UnitSeeder;
 use Database\Seeders\GroupSeeder;
+use Database\Seeders\FungsiSeeder;
 use Database\Seeders\PosisiSeeder;
 use Database\Seeders\SubgroupSeeder;
 use Illuminate\Support\Facades\Hash;
@@ -24,13 +26,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        $this->call(GroupSeeder::class);
-        $this->call(SubgroupSeeder::class);
-        $this->call(UnitSeeder::class);
-        $this->call(PosisiSeeder::class);
-
         User::create([
             'name' => 'Admin ACD',
             'email' => 'adminacd@gmail.com',
@@ -47,8 +42,25 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
 
-        $this->call(KaryawanOrganikSeeder::class);
-        $this->call(TurnOverOrganikSeeder::class);
+        // relasi nya karyawan organik
+        $this->call([
+            GroupSeeder::class,
+            SubgroupSeeder::class,
+            UnitSeeder::class,
+            PosisiSeeder::class
+        ]);
+
+        // relasi nya turnover organik
+        $this->call([
+            AreaSeeder::class,
+            FungsiSeeder::class,
+            UnitKerjaSeeder::class
+        ]);
+
+        $this->call([
+            KaryawanOrganikSeeder::class,
+            TurnOverOrganikSeeder::class
+        ]);
         
     }
 }

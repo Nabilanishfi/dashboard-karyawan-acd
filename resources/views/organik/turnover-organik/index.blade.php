@@ -6,7 +6,7 @@
     <div class="container-index-karyawanorganik py-3 px-2" style="background-color: #fafafa; box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);">
         <div class="wrapper-link d-flex py-2 justify-content-between align-items-center">
             <div class="link d-flex gap-2">
-                <a href="#" class="hover-import py-2 px-2 d-flex gap-1 justify-content-center align-items-center text-decoration-none text-black">
+                <a href="{{ route('data.turnoverorganik.karyawan.create') }}" class="hover-import py-2 px-2 d-flex gap-1 justify-content-center align-items-center text-decoration-none text-black">
                     <svg width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-11.25a.75.75 0 0 0-1.5 0v2.5h-2.5a.75.75 0 0 0 0 1.5h2.5v2.5a.75.75 0 0 0 1.5 0v-2.5h2.5a.75.75 0 0 0 0-1.5h-2.5v-2.5Z" clip-rule="evenodd" />
                     </svg>
@@ -83,9 +83,9 @@
                                     </td>
                                     <td>{{ $karyawan->nip }}</td>
                                     <td>{{ $karyawan->name }}</td>
-                                    <td>{{ $karyawan->area }}</td>
-                                    <td>{{ $karyawan->fungsi }}</td>
-                                    <td>{{ $karyawan->unit_kerja }}</td>
+                                    <td>{{ $karyawan->namaarea }}</td>
+                                    <td>{{ $karyawan->namafungsi }}</td>
+                                    <td>{{ $karyawan->namaunitkerja }}</td>
                                     <td class="text-center">{{ $karyawan->rotasi_antar_unit ?? '-' }}</td>
                                     <td class="text-center">{{ $karyawan->masuk ?? '-' }}</td>
                                     <td class="text-center">{{ $karyawan->keluar ?? '-' }}</td>
