@@ -50,13 +50,41 @@ class TurnOverOrganikController extends Controller
 
         TurnOverOrganik::create($validated);
         
-        return redirect()->route('data.turnoverorganik.karyawan.index')->with('success', 'Sukses! Berhasil menambahkan data karyawan turnover organik.');
+        return redirect()->route('data.turnoverorganik.karyawan.index')->with('message', 'Sukses! Berhasil menambahkan data karyawan turnover organik.');
     }
 
     public function edit(TurnOverOrganik $karyawan): View
     {
         return view('organik.turnover-organik.edit', [
             'karyawan' => $karyawan,
+            'areas' => $this->areas,
+            'fungsis' => $this->fungsis,
+            'unit_kerjas' => $this->unit_kerjas,
         ]);
+    }
+
+    public function update(Request $request, TurnOverOrganik $karyawan): RedirectResponse
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'area_id' => 'required',
+            'fungsi_id' => 'required',
+            'unit_kerja_id' => 'required',
+            'rotasi_antar_unit' => 'nullable',
+            'masuk' => 'nullable',
+            'keluar' => 'nullable',
+            'keterangan' => 'nullable',
+        ]);
+
+        $karyawan->update($validated);
+
+        return redirect()->route('data.turnoverorganik.karyawan.index')->with('message', 'Sukses! Berhasil mengubah data karyawan turnover organik.');
+    }
+
+    public function destroy(TurnOverOrganik $karyawan): RedirectResponse
+    {
+        $karyawan->delete();
+
+        return redirect()->route('data.turnoverorganik.karyawan.index')->with('message', 'Sukses! Berhasil menghapus data karyawan turn over organik.');
     }
 }

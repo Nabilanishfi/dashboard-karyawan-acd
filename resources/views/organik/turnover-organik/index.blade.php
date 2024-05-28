@@ -40,6 +40,12 @@
         </div>
 
         <main class="wrapper-table mt-2">
+            @if (session()->has('message'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <span>{{ session('message') }}</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            @endif
             <div class="container-table table-responsive" style="overflow-x: auto; width: 100%">
                 <table class="table">
                     <thead>
@@ -89,8 +95,7 @@
                                     <td class="text-center">{{ $karyawan->rotasi_antar_unit ?? '-' }}</td>
                                     <td class="text-center">{{ $karyawan->masuk ?? '-' }}</td>
                                     <td class="text-center">{{ $karyawan->keluar ?? '-' }}</td>
-                                    <td>{{ $karyawan->keterangan }}</td>
-                                    <td>{{ $karyawan->age }}</td>
+                                    <td>{{ $karyawan->keterangan ?? '-' }}</td>
                                 </tr>
                             </tr>
                         @empty

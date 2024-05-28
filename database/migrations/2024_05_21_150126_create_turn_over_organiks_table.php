@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('rotasi_antar_unit')->nullable();
             $table->date('masuk')->nullable();
             $table->date('keluar')->nullable();
-            $table->string('keterangan');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }

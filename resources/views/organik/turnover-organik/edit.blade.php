@@ -1,6 +1,6 @@
 @extends('layouts.create-new')
 
-@section('title', 'Create Turn Over Organik')
+@section('title', 'Edit | TurnOver Organik')
 
 @section('container')
     <div class="container-create-turnover-organik">
@@ -13,17 +13,18 @@
             </a>
         </div>
         <div class="mt-4" style="border-bottom: 2px solid rgb(214, 212, 212);">
-            <h5 style="font-size: 14px;">Tambah Turn Over Organik</h5>
+            <h5 style="font-size: 14px;">Ubah Turn Over Organik</h5>
         </div>
         <div class="mt-3 py-4 px-4 rounded" style="background-color: rgb(255, 255, 255);">
             <h4 class="mb-2">Turn Over Organik</h4>
-            <form action="{{ route('data.turnoverorganik.karyawan.store') }}" method="post">
+            <form action="{{ route('data.turnoverorganik.karyawan.update', $karyawan) }}" method="post">
+                @method('PUT')
                 @csrf
                 <div class="d-flex justify-content-between gap-2">
                     <div class="d-flex flex-column gap-1" style="width: 45%">
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="nip" style="font-size: 13px;">NIP</label>
-                            <input type="text" name="nip" id="nip" class="px-3 py-2 @error('nip') is-invalid @enderror" placeholder="masukkan personal number.." value="{{ old('nip') }}">
+                            <input disabled type="text" name="nip" id="nip" class="px-3 py-2 @error('nip') is-invalid @enderror" placeholder="masukkan personal number.." value="{{ $karyawan->nip }}">
                             @error('nip')
                                 <div class="" style="font-size: 13px; color: red;">
                                     *{{ $message }}
@@ -32,7 +33,7 @@
                         </div>
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="name" style="font-size: 13px;">Nama Karyawan</label>
-                            <input type="text" name="name" id="name" class="px-3 py-2 @error('name') is-invalid @enderror" placeholder="masukkan nama karyawan.." value="{{ old('name') }}">
+                            <input type="text" name="name" id="name" class="px-3 py-2 @error('name') is-invalid @enderror" placeholder="masukkan nama karyawan.." value="{{ $karyawan->name }}">
                             @error('name')
                                 <div class="" style="font-size: 13px; color: red;">
                                     *{{ $message }}
@@ -43,6 +44,9 @@
                             <label for="area_id" style="font-size: 13px;">Placement Area</label>
                             <select class="form-select form-select-md @error('area_id') is-invalid @enderror" style="color: rgb(131, 131, 131);" name="area_id" id="area_id">
                                 <option value="" hidden>-- pilih area --</option>
+                                @if ($karyawan->area)
+                                    <option selected hidden value="{{ $karyawan->area_id }}">{{ $karyawan->namaarea }}</option>
+                                @endif
                                 @foreach ($areas as $area)
                                 <option value="{{ $area->id }}">{{ $area->name }}</option>
                                 @endforeach
@@ -57,6 +61,9 @@
                             <label for="fungsi_id" style="font-size: 13px;">Placement Fungsi</label>
                             <select class="form-select form-select-md @error('fungsi_id') is-invalid @enderror" style="color: rgb(131, 131, 131);" name="fungsi_id" id="fungsi_id">
                                 <option value="" hidden>-- pilih placement fungsi --</option>
+                                @if ($karyawan->fungsi)
+                                    <option selected hidden value="{{ $karyawan->fungsi_id }}">{{ $karyawan->namafungsi }}</option>
+                                @endif
                                 @foreach ($fungsis as $fungsi)
                                 <option value="{{ $fungsi->id }}">{{ $fungsi->name }}</option>
                                 @endforeach
@@ -71,6 +78,9 @@
                             <label for="unit_kerja_id" style="font-size: 13px;">Unit Kerja</label>
                             <select class="form-select form-select-md @error('unit_kerja_id') is-invalid @enderror" style="color: rgb(131, 131, 131);" name="unit_kerja_id" id="unit_kerja_id">
                                 <option value="" hidden>-- pilih unit kerja --</option>
+                                @if ($karyawan->unit_kerja)
+                                    <option selected hidden value="{{ $karyawan->unit_kerja_id }}">{{ $karyawan->namaunitkerja }}</option>
+                                @endif
                                 @foreach ($unit_kerjas as $unit)
                                 <option value="{{ $unit->id }}">{{ $unit->name }}</option>
                                 @endforeach
@@ -85,7 +95,7 @@
                     <div class="d-flex flex-column gap-1" style="width: 48%">
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="rotasi_antar_unit" style="font-size: 13px;">Rotasi Antar Unit</label>
-                            <input type="date" name="rotasi_antar_unit" id="rotasi_antar_unit" class="px-3 py-2 @error('rotasi_antar_unit') is-invalid @enderror" style="color:rgb(138, 138, 138)">
+                            <input type="date" name="rotasi_antar_unit" id="rotasi_antar_unit" class="px-3 py-2 @error('rotasi_antar_unit') is-invalid @enderror" style="color:rgb(138, 138, 138)" value="{{ $karyawan->rotasi_antar_unit }}">
                             @error('rotasi_antar_unit')
                                 <div class="" style="font-size: 13px; color: red;">
                                     *{{ $message }}
@@ -94,7 +104,7 @@
                         </div>
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="masuk" style="font-size: 13px;">Masuk</label>
-                            <input type="date" name="masuk" id="masuk" class="px-3 py-2 @error('masuk') is-invalid @enderror" style="color:rgb(138, 138, 138)">
+                            <input type="date" name="masuk" id="masuk" class="px-3 py-2 @error('masuk') is-invalid @enderror" style="color:rgb(138, 138, 138)" value="{{ $karyawan->masuk }}">
                             @error('masuk')
                                 <div class="" style="font-size: 13px; color: red;">
                                     *{{ $message }}
@@ -103,7 +113,7 @@
                         </div>
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="keluar" style="font-size: 13px;">Keluar</label>
-                            <input type="date" name="keluar" id="keluar" class="px-3 py-2 @error('keluar') is-invalid @enderror" style="color:rgb(138, 138, 138)">
+                            <input type="date" name="keluar" id="keluar" class="px-3 py-2 @error('keluar') is-invalid @enderror" style="color:rgb(138, 138, 138)" value="{{ $karyawan->keluar }}">
                             @error('keluar')
                                 <div class="" style="font-size: 13px; color: red;">
                                     *{{ $message }}
@@ -112,7 +122,7 @@
                         </div>
                         <div class="input mt-3 d-flex flex-column gap-1">
                             <label for="keterangan" style="font-size: 13px;">Keterangan</label>
-                            <input type="text" name="keterangan" id="keterangan" class="px-3 py-2 @error('keterangan') is-invalid @enderror" style="color:rgb(138, 138, 138)" placeholder="masukkan keterangan.." value="{{ old('keterangan') }}">
+                            <input type="text" name="keterangan" id="keterangan" class="px-3 py-2 @error('keterangan') is-invalid @enderror" style="color:rgb(138, 138, 138)" placeholder="masukkan keterangan.." value="{{ $karyawan->keterangan }}">
                             @error('keterangan')
                                 <div class="" style="font-size: 13px; color: red;">
                                     *{{ $message }}
@@ -120,7 +130,7 @@
                             @enderror
                         </div>
                         
-                        <button type="submit" class="mt-3 py-2 btn-tambah">Tambah Karyawan</button>
+                        <button type="submit" class="mt-3 py-2 btn-tambah">Ubah Karyawan</button>
                     </div>
                 </div>
             </form>
