@@ -53,7 +53,7 @@ Route::prefix('grafik')->name('grafik.')->middleware('auth')->group(function () 
     Route::get('/karyawan-organik', [GrafikController::class, 'karyawanOrganik'])->name('karyawanorganik');
     Route::get('/turnover-organik', [GrafikController::class, 'turnOverOrganik'])->name('turnoverorganik');
     Route::get('/turnover-tpp', [GrafikController::class, 'turnOverTPP'])->name('turnovertpp');
-    Route::get('/data-plt', [GrafikController::class, 'dataplt'])->name('dataplt');
+    Route::get('/data-plt', [GrafikController::class, 'dataPLT'])->name('dataplt');
 });
 
 Route::middleware(['auth'])->group(function () {

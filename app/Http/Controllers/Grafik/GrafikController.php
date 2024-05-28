@@ -26,10 +26,27 @@ class GrafikController extends Controller
     {
         return view('organik.grafik.karyawan-organik');
     }
+
+    public function getCountTurnOverOrganik()
+    {
+        $countByArea = DB::table('turn_over_organiks AS too')
+        ->rightJoin('areas AS a', 'a.id', '=', 'too.area_id')
+        ->selectRaw('a.name, COUNT(too.nip) as total_karyawan')
+        ->groupBy('a.name')
+        ->orderBy('a.name')
+        ->get();
+
+        return response()->json(['countArea' => $countByArea]);
+    }
     
     public function turnOverOrganik(): View
     {
         return view('organik.grafik.turnover-organik');
+    }
+
+    public function getCountTurnOverTPP()
+    {
+        return null;
     }
 
     public function turnOverTPP(): View
@@ -37,7 +54,12 @@ class GrafikController extends Controller
         return view('organik.grafik.turnover-tpp');
     }
 
-    public function dataPlt(): View
+    public function getCountDataPLT()
+    {
+        return null;
+    }
+
+    public function dataPLT(): View
     {
         return view('organik.grafik.data-plt');
     }

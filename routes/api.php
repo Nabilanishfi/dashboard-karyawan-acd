@@ -15,6 +15,9 @@ use App\Http\Controllers\Grafik\GrafikController;
 |
 */
 
-Route::prefix('grafik')->name('grafik.')->group(function() {
+Route::prefix('grafik')->name('api.grafik.')->group(function() {
     Route::get('/karyawan-organik', [GrafikController::class, 'getCountKaryawanOrganik'])->name('karyawanorganik');
+    Route::get('/turnover-organik', [GrafikController::class,'getCountTurnOverOrganik'])->name('turnoverorganik');
+    Route::get('/turnover-tpp', [GrafikController::class,'getCountTurnOverTPP'])->name('turnovertpp');
+    Route::get('/data-plt', [GrafikController::class,'getCountDataPLT'])->name('dataplt');
 });
