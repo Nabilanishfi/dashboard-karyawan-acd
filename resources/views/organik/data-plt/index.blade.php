@@ -40,11 +40,11 @@
         </div>
 
         @if (session()->has('message'))
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <p>{{ session('message') }}</p>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
-            </div>
-        @endif
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <span>{{ session('message') }}</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            @endif
 
         <main class="wrapper-table mt-2">
             <div class="container-table table-responsive" style="overflow-x: auto; width: 100%">

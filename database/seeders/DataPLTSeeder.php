@@ -54,7 +54,7 @@ class DataPLTSeeder extends Seeder
         ]);
 
         DataPLT::create([
-            'nik' => '20002868',
+            'nik' => '20002869',
             'name' => 'Siti Jenar',
             'jabatan_existing' => 1,
             'jabatan_usulan_plt' => 1,

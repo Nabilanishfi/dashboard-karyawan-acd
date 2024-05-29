@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('data_plts', function (Blueprint $table) {
-            $table->bigInteger('nik')->unsigned();
+            $table->bigInteger('nik')->unsigned()->unique();
             $table->string('name');
             $table->foreignId('jabatan_existing');
             $table->foreignId('jabatan_usulan_plt');

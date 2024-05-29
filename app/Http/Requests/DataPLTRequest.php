@@ -27,8 +27,8 @@ class DataPLTRequest extends FormRequest
             'nik' => 'required|unique:data_plts|min:3',
             'name' => 'required',
             'jabatan_existing' => 'required',
-            'jabatan_usulan_plt' => 'required',
-            'jabatan_usulan_plh' => 'required',
+            'jabatan_usulan_plt' => 'nullable',
+            'jabatan_usulan_plh' => 'nullable',
             'awal_plh' => 'nullable|date',
             'akhir_plh' => 'nullable|date',
             'awal_plt' => 'nullable|date',
@@ -44,8 +44,8 @@ class DataPLTRequest extends FormRequest
             'nik.unique' => 'NIK sudah tersedia. Silahkan gunakan NIK yang lain.',
             'name.required' => 'Nama harus diisi.',
             'jabatan_existing.required' => 'Jabatan Eksisting harus diisi.',
-            'jabatan_usulan_plt.required' => 'Jabatan Usulan PLT harus diisi.',
-            'jabatan_usulan_plh.required' => 'Jabatan Usulan PLH harus diisi.',
+            // 'jabatan_usulan_plt.required' => 'Jabatan Usulan PLT harus diisi.',
+            // 'jabatan_usulan_plh.required' => 'Jabatan Usulan PLH harus diisi.',
         ];
     }
 }

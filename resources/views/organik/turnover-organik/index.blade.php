@@ -18,7 +18,7 @@
                 </a>
                 <a href="{{ route('grafik.turnoverorganik') }}" class="hover-import py-2 px-2 d-flex gap-1 justify-content-center align-items-center text-decoration-none text-black">
                     <img src="{{ asset('./img/grafik.svg') }}" width="20" alt="">
-                    <span style="font-size: 13px;">Dashboard Grafik</span>  
+                    <span style="fwarningont-size: 13px;">Dashboard Grafik</span>  
                 </a>
             </div>
             <div class="search">

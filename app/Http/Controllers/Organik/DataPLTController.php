@@ -10,6 +10,7 @@ use App\Models\Jabatan\UsulanPLH;
 use App\Models\Jabatan\UsulanPLT;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DataPLTRequest;
+use Illuminate\Http\RedirectResponse;
 
 class DataPLTController extends Controller
 {
