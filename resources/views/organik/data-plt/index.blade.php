@@ -12,11 +12,11 @@
                     </svg>
                     <span style="font-size: 13px;">Tambah Data Baru</span>  
                 </a>
-                <a href="#" class="hover-import py-2 px-2 d-flex gap-1 justify-content-center align-items-center text-decoration-none text-black">
+                {{-- <a href="#" class="hover-import py-2 px-2 d-flex gap-1 justify-content-center align-items-center text-decoration-none text-black">
                     <img src="{{ asset('./img/excel.svg') }}" width="20" alt="">
                     <span style="font-size: 13px;">Import Excel</span>  
-                </a>
-                <a href="#" class="hover-import py-2 px-2 d-flex gap-1 justify-content-center align-items-center text-decoration-none text-black">
+                </a> --}}
+                <a href="{{ route('grafik.dataplt') }}" class="hover-import py-2 px-2 d-flex gap-1 justify-content-center align-items-center text-decoration-none text-black">
                     <img src="{{ asset('./img/grafik.svg') }}" width="20" alt="">
                     <span style="font-size: 13px;">Dashboard Grafik</span>  
                 </a>

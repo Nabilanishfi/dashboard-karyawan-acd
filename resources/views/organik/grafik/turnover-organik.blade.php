@@ -34,19 +34,18 @@
                         chart.destroy();
                     }
 
+                    // ekstrak total karyawan di setiap area
+                    let datas = countArea.map((area) => {
+                        return area.total_karyawan;
+                    })
+
                     chart = new Chart(ctx, {
                         type: 'bar',
                         data: {
                             labels: ['APS', 'CGK', 'KC', 'NON CGK', 'PIU PWL'],
                             datasets: [{
                                 label: 'Jumlah Karyawan Berdasarkan Area',
-                                data: [
-                                    countArea[0]['total_karyawan'],
-                                    countArea[1]['total_karyawan'],
-                                    countArea[2]['total_karyawan'],
-                                    countArea[3]['total_karyawan'],
-                                    countArea[4]['total_karyawan']
-                                ],
+                                data: datas,
                                 backgroundColor: ['#F27BBD', '#E1AFD1', '#874CCC', '#7469B6', '#5755FE'],
                                 borderWidth: 1,
                             }]
