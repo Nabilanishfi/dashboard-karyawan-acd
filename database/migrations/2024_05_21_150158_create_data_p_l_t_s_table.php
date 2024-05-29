@@ -16,12 +16,14 @@ return new class extends Migration
         Schema::create('data_plts', function (Blueprint $table) {
             $table->bigInteger('nik')->unsigned();
             $table->string('name');
-            $table->string('jabatan_existing');
-            $table->string('jabatan_usulan_plt');
-            $table->string('jabatan_usulan_plh');
-            $table->text('periode_plt');
-            $table->text('periode_plh');
-            $table->string('nodin_spr');
+            $table->foreignId('jabatan_existing');
+            $table->foreignId('jabatan_usulan_plt');
+            $table->foreignId('jabatan_usulan_plh');
+            $table->date('awal_plt')->nullable();
+            $table->date('akhir_plt')->nullable();
+            $table->date('awal_plh')->nullable();
+            $table->date('akhir_plh')->nullable();
+            $table->string('nodin_spr')->nullable();
             $table->timestamps();
         });
     }

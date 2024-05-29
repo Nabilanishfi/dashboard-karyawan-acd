@@ -12,7 +12,6 @@ class UsulanPLT extends Model
     use HasFactory;
 
     protected $table = 'usulan_plts';
-    protected $primaryKey = 'id';
 
     protected $fillable = ['name'];
 

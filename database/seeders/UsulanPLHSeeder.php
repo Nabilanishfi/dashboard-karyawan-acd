@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Jabatan\UsulanPLH;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UsulanPLHSeeder extends Seeder
 {
@@ -14,6 +15,11 @@ class UsulanPLHSeeder extends Seeder
      */
     public function run()
     {
-        //
+        UsulanPLH::create([
+            'name' => 'Manager of Project Management',
+        ]);
+        UsulanPLH::create([
+            'name' => 'SM of Financial Project & General Affairs',
+        ]);
     }
 }

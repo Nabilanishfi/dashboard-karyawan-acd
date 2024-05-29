@@ -12,7 +12,6 @@ class UsulanPLH extends Model
     use HasFactory;
 
     protected $table = 'usulan_plhs';
-    protected $primaryKey = 'id';
 
     protected $fillable = ['name'];
 

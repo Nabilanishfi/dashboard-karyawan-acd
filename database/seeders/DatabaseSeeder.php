@@ -12,9 +12,13 @@ use Database\Seeders\UnitSeeder;
 use Database\Seeders\GroupSeeder;
 use Database\Seeders\FungsiSeeder;
 use Database\Seeders\PosisiSeeder;
+use Database\Seeders\DataPLTSeeder;
+use Database\Seeders\ExistingSeeder;
 use Database\Seeders\SubgroupSeeder;
 use Illuminate\Support\Facades\Hash;
 use Database\Seeders\UnitKerjaSeeder;
+use Database\Seeders\UsulanPLHSeeder;
+use Database\Seeders\UsulanPLTSeeder;
 use Database\Seeders\TurnOverTPPSeeder;
 use Database\Seeders\KaryawanOrganikSeeder;
 use Database\Seeders\TurnOverOrganikSeeder;
@@ -61,9 +65,16 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
+            ExistingSeeder::class,
+            UsulanPLTSeeder::class,
+            UsulanPLHSeeder::class,
+        ]);
+
+        $this->call([
             KaryawanOrganikSeeder::class,
             TurnOverOrganikSeeder::class,
             TurnOverTPPSeeder::class,
+            DataPLTSeeder::class,
         ]);
         
     }
