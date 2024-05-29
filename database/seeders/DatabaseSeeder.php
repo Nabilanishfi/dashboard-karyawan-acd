@@ -14,6 +14,9 @@ use Database\Seeders\FungsiSeeder;
 use Database\Seeders\PosisiSeeder;
 use Database\Seeders\SubgroupSeeder;
 use Illuminate\Support\Facades\Hash;
+use Database\Seeders\UnitKerjaSeeder;
+use Database\Seeders\TurnOverTPPSeeder;
+use Database\Seeders\KaryawanOrganikSeeder;
 use Database\Seeders\TurnOverOrganikSeeder;
 
 
@@ -50,7 +53,7 @@ class DatabaseSeeder extends Seeder
             PosisiSeeder::class
         ]);
 
-        // relasi nya turnover organik
+        // relasi nya turnover organik & turnover tpp
         $this->call([
             AreaSeeder::class,
             FungsiSeeder::class,
@@ -59,7 +62,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             KaryawanOrganikSeeder::class,
-            TurnOverOrganikSeeder::class
+            TurnOverOrganikSeeder::class,
+            TurnOverTPPSeeder::class,
         ]);
         
     }

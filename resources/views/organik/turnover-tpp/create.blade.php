@@ -1,11 +1,11 @@
 @extends('layouts.create-new')
 
-@section('title', 'Create Turn Over Organik')
+@section('title', 'Create Turn Over TPP')
 
 @section('container')
-    <div class="container-create-turnover-organik">
+    <div class="container-create-turnover-tpp">
         <div class="mt-3">
-            <a href="{{ route('data.turnoverorganik.karyawan.index') }}" class="btn-back px-3 py-1 text-decoration-none text-black" style="font-size: 13px; border-radius: 20px; box-shadow: 0px 2px 3px rgba(0,0,0,.2);">
+            <a href="{{ route('data.turnovertpp.karyawan.index') }}" class="btn-back px-3 py-1 text-decoration-none text-black" style="font-size: 13px; border-radius: 20px; box-shadow: 0px 2px 3px rgba(0,0,0,.2);">
                 <svg class="mr-2" width="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                     <path fill-rule="evenodd" d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z" clip-rule="evenodd" />
                     </svg>
@@ -13,11 +13,11 @@
             </a>
         </div>
         <div class="mt-4" style="border-bottom: 2px solid rgb(214, 212, 212);">
-            <h5 style="font-size: 14px;">Tambah Turn Over Organik</h5>
+            <h5 style="font-size: 14px;">Tambah Turn Over TPP</h5>
         </div>
         <div class="mt-3 py-4 px-4 rounded" style="background-color: rgb(255, 255, 255);">
-            <h4 class="mb-2">Turn Over Organik</h4>
-            <form action="{{ route('data.turnoverorganik.karyawan.store') }}" method="post">
+            <h4 class="mb-2">Turn Over TPP</h4>
+            <form action="{{ route('data.turnovertpp.karyawan.store') }}" method="post">
                 @csrf
                 <div class="d-flex justify-content-between gap-2">
                     <div class="d-flex flex-column gap-1" style="width: 45%">
@@ -84,9 +84,14 @@
                     </div>
                     <div class="d-flex flex-column gap-1" style="width: 48%">
                         <div class="input mt-3 d-flex flex-column gap-1">
-                            <label for="rotasi_antar_unit" style="font-size: 13px;">Rotasi Antar Unit</label>
-                            <input type="date" name="rotasi_antar_unit" id="rotasi_antar_unit" class="px-3 py-2 @error('rotasi_antar_unit') is-invalid @enderror" style="color:rgb(138, 138, 138)">
-                            @error('rotasi_antar_unit')
+                            <label for="pendidikan" style="font-size: 13px;">Pendidikan</label>
+                            <select class="form-select form-select-md @error('pendidikan') is-invalid @enderror" style="color: rgb(131, 131, 131);" name="pendidikan" id="pendidikan">
+                                <option value="" hidden>-- pilih tingkat pendidikan --</option>
+                                <option value="S1 - Strata 1">S1 - Strata 1</option>
+                                <option value="DIII - Diploma III">DIII - Diploma III</option>
+                                <option value="SLTA">SLTA</option>
+                            </select>
+                            @error('pendidikan')
                                 <div class="" style="font-size: 13px; color: red;">
                                     *{{ $message }}
                                 </div>

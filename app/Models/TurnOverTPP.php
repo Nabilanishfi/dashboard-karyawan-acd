@@ -13,10 +13,13 @@ class TurnOverTPP extends Model
 {
     use HasFactory;
 
-    protected $table = 'turnover_t_p_p_s';
+    protected $table = 'turn_over_tpps';
     protected $primaryKey = 'nip';
+
+    // if the model key is not int, must define a protected $keyType
+    protected $keyType = 'string';
     
-    protected $fillable = ['nip', 'name', 'area', 'fungsi', 'unit_kerja', 'pendidikan', 'masuk', 'keluar', 'keterangan'];
+    protected $fillable = ['nip', 'name', 'area_id', 'fungsi_id', 'unit_kerja_id', 'pendidikan', 'masuk', 'keluar', 'keterangan'];
 
     public function area(): BelongsTo
     {

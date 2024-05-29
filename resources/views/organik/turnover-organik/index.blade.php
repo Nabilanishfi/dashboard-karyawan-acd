@@ -3,7 +3,7 @@
 @section('title', 'Index | Karyawan Organik')
 
 @section('container')
-    <div class="container-index-karyawanorganik py-3 px-2" style="background-color: #fafafa; box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);">
+    <div class="container-index-turnoverorganik py-3 px-2" style="background-color: #fafafa; box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);">
         <div class="wrapper-link d-flex py-2 justify-content-between align-items-center">
             <div class="link d-flex gap-2">
                 <a href="{{ route('data.turnoverorganik.karyawan.create') }}" class="hover-import py-2 px-2 d-flex gap-1 justify-content-center align-items-center text-decoration-none text-black">

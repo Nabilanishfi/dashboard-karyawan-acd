@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('turn_over_t_p_p_s', function (Blueprint $table) {
+        Schema::create('turn_over_tpps', function (Blueprint $table) {
             $table->string('nip')->unique();
             $table->string('name');
             $table->foreignId('area_id');
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('turn_over_t_p_p_s');
+        Schema::dropIfExists('turn_over_tpps');
     }
 };
