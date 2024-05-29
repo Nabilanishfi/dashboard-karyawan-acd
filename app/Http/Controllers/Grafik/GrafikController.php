@@ -12,7 +12,6 @@ class GrafikController extends Controller
     public function getCountKaryawanOrganik()
     {
         $totalAge = KaryawanOrganik::select(
-            DB::raw('COUNT(*) FILTER (WHERE age >= 10 AND age < 20) AS "10+"'),
             DB::raw('COUNT(*) FILTER (WHERE age >= 20 AND age < 30) AS "20+"'),
             DB::raw('COUNT(*) FILTER (WHERE age >= 30 AND age < 40) AS "30+"'),
             DB::raw('COUNT(*) FILTER (WHERE age >= 40 AND age < 50) AS "40+"'),

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Organik;
 
+use Carbon\Carbon;
 use App\Models\DataPLT;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -18,6 +19,7 @@ class DataPLTController extends Controller
     public $existings;
     public $usulan_plts;
     public $usulan_plhs;
+    public $warnings;
 
     public function __construct()
     {
@@ -30,9 +32,80 @@ class DataPLTController extends Controller
     {
         $this->karyawans = DataPLT::query()->orderBy('name')->paginate(10);
 
+        $warnings = array_merge($this->showWarningDataPLT(), $this->showWarningDataPLH());
+
         return view("organik.data-plt.index", [
             'karyawans' => $this->karyawans,
+            'warnings' => $warnings,
         ]);
+    }
+
+    public function showWarningDataPLH(): array
+    {
+        $dataPlt = DataPLT::all();
+        $todayDate = Carbon::now();
+
+        $warningsPlh = [];
+
+        foreach($dataPlt as $data) {
+            if ($data->akhir_plh) {
+                $periodePlh = Carbon::parse($data->akhir_plh);
+        
+                $startDatePlh = $periodePlh->copy()->subDays(14);
+                $endDatePlh = $periodePlh->copy()->addDays(2);
+        
+                if ($todayDate->between($startDatePlh, $endDatePlh)) {
+                    $diffDays = $todayDate->diffInDays($periodePlh, false);
+                    if ($diffDays < 0) {
+                        $warningsPlh[] = [
+                            'pesan' => 'Periode PLH ' . $data->name . ' sudah terlewat ' . abs($diffDays) . ' hari.',
+                            'terlewat' => true,
+                        ];
+                    } else {
+                        $warningsPlh[] = [
+                            'pesan' => 'Periode PLH ' . $data->name . ' tersisa ' . $diffDays . ' hari lagi.',
+                            'terlewat' => false,
+                        ];
+                    }
+                }
+            }
+        }
+
+        return $warningsPlh;
+    }
+
+    public function showWarningDataPLT(): array
+    {
+        $dataPlt = DataPLT::all();
+        $todayDate = Carbon::now();
+
+        $warningsPlt = [];
+
+        foreach($dataPlt as $data) {
+            if ($data->akhir_plt) {
+                $periodePlt = Carbon::parse($data->akhir_plt);
+    
+                $startDatePlt = $periodePlt->copy()->subDays(14);
+                $endDatePlt = $periodePlt->copy()->addDays(2);
+    
+                if ($todayDate->between($startDatePlt, $endDatePlt)) {
+                    $diffDays = $todayDate->diffInDays($periodePlt, false);
+                    if ($diffDays < 0) {
+                        $warningsPlt[] = [
+                            'pesan' => 'Periode PLT ' . $data->name . ' sudah terlewat ' . abs($diffDays) . ' hari.',
+                            'terlewat' => true,
+                        ];
+                    } else {
+                        $warningsPlt[] = [
+                            'pesan' => 'Periode PLT ' . $data->name . ' tersisa ' . abs($diffDays) . ' hari lagi.',
+                            'terlewat' => false,
+                        ];
+                    }
+                }
+            }
+        }
+
+        return $warningsPlt;
     }
 
     public function create(): View

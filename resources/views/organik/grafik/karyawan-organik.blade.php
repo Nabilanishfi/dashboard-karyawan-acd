@@ -38,17 +38,16 @@
                     chart = new Chart(ctx, {
                         type: 'bar',
                         data: {
-                            labels: ['10+', '20+', '30+', '40+', '50+'],
+                            labels: ['20+', '30+', '40+', '50+'],
                             datasets: [{
                                 label: 'Jumlah Karyawan Berdasarkan Usia',
                                 data: [
-                                    totalAge['10+'],
                                     totalAge['20+'],
                                     totalAge['30+'],
                                     totalAge['40+'],
                                     totalAge['50+']
                                 ],
-                                backgroundColor: ['#F27BBD', '#E1AFD1', '#874CCC', '#7469B6', '#5755FE'],
+                                backgroundColor: ['#E1AFD1', '#874CCC', '#7469B6', '#5755FE'],
                                 borderWidth: 1,
                             }]
                         },

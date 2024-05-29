@@ -20,6 +20,42 @@
                     <img src="{{ asset('./img/grafik.svg') }}" width="20" alt="">
                     <span style="font-size: 13px;">Dashboard Grafik</span>  
                 </a>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn notification-button" style="position: relative" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+
+                    @if ($warnings)
+                        <div class="circle-notif"></div>
+                    @endif
+
+                    <img src="{{ asset('./img/message.svg') }}" width="20" alt="message">
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <p class="modal-title fw-bold" id="staticBackdropLabel">Pesan Peringatan</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            @forelse ($warnings as $warning)
+                                <div class="alert {{ $warning['terlewat'] ? 'alert-danger' : 'alert-warning' }}" role="alert">
+                                        {{ $warning['pesan'] }}
+                                </div>
+                            @empty
+                                <div class="alert alert-info">
+                                    Belum ada peringatan tersedia.
+                                </div>
+                            @endforelse
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="button" class="btn btn-primary">Oke</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
             </div>
             <div class="search">
 

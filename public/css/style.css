@@ -161,3 +161,23 @@
     background-color: rgb(241, 241, 241);
 }
 /* navbar dashboard */
+
+
+.notification-button {
+    background-color: rgb(230, 230, 230);
+    outline: none;
+    border: none;
+}
+.notification-button:hover {
+    background-color: rgb(192, 191, 252);
+}
+.circle-notif {
+    width: 10px;
+    height: 10px;
+    background-color: rgb(38, 0, 255);
+    border-radius: 50%;
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    border: 1px solid rgb(202, 193, 255);
+}
