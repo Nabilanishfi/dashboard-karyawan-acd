@@ -50,6 +50,42 @@ class DataPLTController extends Controller
 
         DataPLT::create($validated);
 
-        return redirect()->route('data.dataplt.karyawan.index')->with('message', 'Sukses! Berhasil menambahkan Data PLT');
+        return redirect()->route('data.dataplt.karyawan.index')->with('message', 'Sukses! Berhasil menambahkan Data PLT.');
+    }
+
+    public function edit(DataPLT $karyawan): View
+    {
+        return view('organik.data-plt.edit', [
+            'karyawan' => $karyawan,
+            'existings' => $this->existings,
+            'usulan_plts' => $this->usulan_plts,
+            'usulan_plhs' => $this->usulan_plhs,
+        ]);
+    }
+
+    public function update(Request $request, DataPLT $karyawan): RedirectResponse
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'jabatan_existing' => 'required',
+            'jabatan_usulan_plt' => 'nullable',
+            'jabatan_usulan_plh' => 'nullable',
+            'awal_plh' => 'nullable|date',
+            'akhir_plh' => 'nullable|date',
+            'awal_plt' => 'nullable|date',
+            'akhir_plt' => 'nullable|date',
+            'nodin_spr' => 'nullable',
+        ]);
+
+        $karyawan->update($validated);
+
+        return redirect()->route('data.dataplt.karyawan.index')->with('message', 'Sukses! Berhasil mengubah Data PLT.');
+    }
+
+    public function destroy(DataPLT $karyawan): RedirectResponse
+    {
+        $karyawan->delete();
+        
+        return redirect()->route('data.dataplt.karyawan.index')->with('message', 'Sukses! Berhasil menghapus Data PLT.');
     }
 }
