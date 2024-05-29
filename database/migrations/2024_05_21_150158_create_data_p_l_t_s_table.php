@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('data_p_l_t_s', function (Blueprint $table) {
+        Schema::create('data_plts', function (Blueprint $table) {
             $table->bigInteger('nik')->unsigned();
             $table->string('name');
             $table->string('jabatan_existing');
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_p_l_t_s');
+        Schema::dropIfExists('data_plts');
     }
 };
