@@ -24,7 +24,7 @@
     
         function getData() {
             $.ajax({
-                url: 'http://dashboard-karyawan-acd.test/api/grafik/karyawan-organik',
+                url: 'http://127.0.0.1:8000/api/grafik/karyawan-organik',
                 method: 'GET',
                 dataType: 'json',
                 success: function(response) {

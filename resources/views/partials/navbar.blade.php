@@ -30,7 +30,7 @@
           @endauth
           @guest
             <li class="nav-item" style="width: 100px;">
-                <a class="nav-link text-center fw-bold" style="padding: 5px; 30px; border-radius: 30px; background-color: blue; font-size: 13px; color: white;" href="{{ route('login') }}">Masuk</a>
+                <a class="nav-link text-center fw-bold" style="padding: 8px; 20px; border-radius: 20px; background-color: #3C33FF; font-size: 13px; color: white;" href="{{ route('login') }}">Masuk</a>
             </li>
             {{-- <li class="nav-item">
                 <a class="nav-link" href="{{ route('register') }}">Register</a>

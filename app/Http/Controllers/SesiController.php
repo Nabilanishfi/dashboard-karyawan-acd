@@ -15,11 +15,13 @@ class SesiController extends Controller
     function login(Request $request)
     {
         $request->validate([
-            'email'=>'required',
+            'email'=>'required|email',
             'password'=>'required'
         ], [
-            'email.required'=>'Email wajib diisi',
-            'password.required'=>'Password wajib diisi',
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Email harus valid.',
+            'password.required' => 'Password wajib diisi.',
+            'password.min' => 'Password minimal 6 karakter',
         ]);
 
         $infologin = [
@@ -34,7 +36,7 @@ class SesiController extends Controller
                 return redirect('admin.dashboard');
             }
         }else{
-            return redirect('')->withErrors('Username dan Password yang dimasukkan tidak sesuai')->withInput();
+            return redirect('')->withErrors('Username dan Password yang dimasukkan tidak sesuai!')->withInput();
         }
     }
 
@@ -44,6 +46,6 @@ class SesiController extends Controller
         session()->invalidate();
         session()->regenerateToken();
 
-        return redirect()->route('login')->with('success', 'Kamu berhasil logout');
+        return redirect()->route('login')->with('message', 'Pengguna berhasil logout!');
     }
 }
