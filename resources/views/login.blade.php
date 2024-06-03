@@ -1,41 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <title>Login</title>
-</head>
-<body>
-    <div class="container py-5">
-        <div class="w-50 center border rounded px-3 py-3 mx-auto">
-        <h1>Login</h1>
-        @if($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $item)
-                <li>{{ $item }}</li>
-                @endforeach
-            </ul>
+@extends('layouts.guest')
+
+@section('title', 'Login Dashboard Karyawan ACD')
+
+@section('container')
+    <div class="container mt-3 py-4 d-flex-justify-content-center">
+        <div class="wrapper-card p-5" style="width: 40%; margin: 20px auto; background-color: white; border-radius: 25px;">
+            <form>
+                <div class="d-flex flex-column gap-2">
+                    <div class="d-flex justify-content-center gap-1">
+                        <img src="{{ asset('./img/angkasapura.svg') }}" width="150px" alt="">
+                        <img src="{{ asset('./img/acd.svg') }}" width="150px" alt="">
+                    </div>
+                    <div class="text-center mt-4">
+                        <h6 class="fw-bold">Selamat datang kembali!</h6>
+                        <p style="font-size: 14px; color: rgb(90, 90, 90);">Silahkan masukkan informasi <span class="fst-italic fw-bold">Akun Dashboard ACD</span> anda.</p>
+                    </div>
+                </div>
+                <div class="mb-3 mt-3">
+                  <input type="text" class="form-control" id="username" placeholder="Username" style="font-size: 14px;" autofocus>
+                </div>
+                <div class="mb-3">
+                  <input type="password" class="form-control" id="password" placeholder="Password" style="font-size: 14px;">
+                </div>
+                <div class="mb-3 form-check d-flex align-items-center gap-1">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1" style="font-size: 14px;">Tetap masuk</label>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Masuk</button>
+            </form>
         </div>
-        @endif
-        <form action="" method="POST">
-            @csrf
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" value="{{ old('email') }}" name="email" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control">
-            </div>
-            <div class="mb-3 d-grid">
-                <button name="submit" type="submit" class="btn btn-primary">Login</button>
-            </div>
-        </form>
-    </div> 
     </div>
-</body>
-</html>
+@endsection

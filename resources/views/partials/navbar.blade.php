@@ -29,12 +29,12 @@
             </li>
           @endauth
           @guest
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">Login</a>
+            <li class="nav-item" style="width: 100px;">
+                <a class="nav-link text-center fw-bold" style="padding: 5px; 30px; border-radius: 30px; background-color: blue; font-size: 13px; color: white;" href="{{ route('login') }}">Masuk</a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="{{ route('register') }}">Register</a>
-            </li>
+            </li> --}}
           @endguest
         </ul>
       </div>
